@@ -1,12 +1,8 @@
-FROM dorowu/ubuntu-desktop-lxde-vnc:focal
+FROM ericpaulsen/ubuntu-bionic-gui:latest
 
 SHELL ["/bin/bash", "-c"]
 
 COPY containerd-pin /etc/apt/preferences.d/
-
-RUN sudo mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o docker-archive-keyring.gpg
-
 
 # Install the Docker apt repository
 RUN apt-get update && \
